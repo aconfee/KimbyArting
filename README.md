@@ -40,7 +40,7 @@ FIRST TIME SETUP
 
 1. Clone the project from github.
 
-2. Run `npm install` and `npm run build` to be all set up locally.
+2. Run `npm install` and `npm run dev:build` to be all set up locally.
   - You can test to make sure everything works by running `npm run dev:start` and viewing on localhost:3000.
 
 3. Initialize a new github repo and push to it.
