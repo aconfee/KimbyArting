@@ -58,6 +58,7 @@ describe('--- EXPRESS SERVER ---', function(){
 /*
  * GET HEARTBEAT FROM MONGOOSE
  */
+ /*
 describe('--- API DATA / MONGO DB ---', function(){
   describe('Express API interacting with Mongoose', function(){
 
@@ -155,3 +156,4 @@ describe('--- API DATA / MONGO DB ---', function(){
 
   }); // describe
 });
+*/
