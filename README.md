@@ -44,14 +44,16 @@ FIRST TIME SETUP
   - You can test to make sure everything works by running `npm run dev:start` and viewing on localhost:3000.
 
 3. Initialize a new github repo and push to it.
-  - Add remote to new repo and push to it. Then remove old remotes.
+  - Remove current origin and add remote to new repo, then push to it.
 
-4. Activate the repo in Travis CI: https://travis-ci.org/profile/aconfee.
+4. Activate the repo in Travis CI: https://travis-ci.org/profile/aconfee. May need to sync account to see new repo.
 
 5. Prepare For Heroku Deployment:
   - Run `heroku create`
   - Verify Heroku remote was added with `git remote -v`
-  - Deploy with `git push heroku master`
+  - In config/webpack.prod.js change the output public path to the Heroku site url.
+  - Build a production ready version of the app with `npm run build`. (npm and webpack are set up with corresponding developer and production commands. build / dev:build and start / dev:start)
+  - Deploy with `git push heroku master` (after committing changes).
   - Open app with `heroku open`
 
 6. Set up MongoDB
