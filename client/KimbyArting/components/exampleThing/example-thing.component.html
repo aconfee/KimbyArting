@@ -1,0 +1,5 @@
+<h3>{{ title }}</h3>
+<p>{{ text }} </p>
+<p>Test data in db fetched from service displayed below:</p>
+<p>{{ exampleData.name }}</p>
+<p *ngFor="let data of exampleData.data">{{ data.name }} {{ data.data }}</p>

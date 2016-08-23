@@ -77,4 +77,4 @@ FIRST TIME SETUP
   - If Mongo was not set up for this project, comment or remove the Mongo tests from test/apiTests.js.
   - Deploy now using `npm run deploy` (don't commit changes, this will be done for you -- however, in the future, commit for the sake of leaving a good history of messages). Travis should run everything and deploy to Heroku when finished.
 
-9. Once everything is up and running, remove this README and start creating!
+9. Once everything is up and running, remove this README and start creating! (Verify Travis build completes and Heroku app is deployed).

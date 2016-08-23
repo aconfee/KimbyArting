@@ -1,0 +1,16 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00B7FF; }
+/* TYPOGRAPHY */
+.text-large {
+  font-size: 1.9em;
+  font-family: 'Raleway', sans-serif; }
+
+/* COMMON PAGE ELEMENTS */
+.link:hover {
+  color: blue;
+  cursor: pointer; }
+
+/* OVERLOADED DEFAULTS */

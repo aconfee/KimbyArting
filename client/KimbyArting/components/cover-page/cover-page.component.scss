@@ -1,0 +1,35 @@
+.screensize-container{
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+
+  position:fixed;
+
+  background-color:rgba(25, 25, 25, 0.1);
+}
+
+.menu-container{
+  top:0;
+  left:50px;
+  bottom:0;
+
+  width:300px;
+
+  position:fixed;
+
+  text-align:center;
+
+  background-color: rgba(25,25,25,0.1);
+}
+
+.logo{
+  width:300px;
+  height:170px;
+
+  margin-top:50px;
+}
+
+#viewPortfolioButton{
+  margin-top:70px;
+}
