@@ -8,6 +8,7 @@ import 'rxjs/add/operator/toPromise';
 // Application components
 import { AppComponent } from './app.component';
 import { CoverPageComponent } from './components/cover-page/cover-page.component';
+import { PortfolioPageComponent } from './components/portfolio-page/portfolio-page.component';
 
 import { ExampleThingComponent } from './components/exampleThing/example-thing.component';
 
@@ -23,6 +24,7 @@ import { ExampleService } from './services/example.service';
   declarations: [
     ExampleThingComponent,
     CoverPageComponent,
+    PortfolioPageComponent,
     AppComponent
   ],
   providers: [
