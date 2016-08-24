@@ -14,12 +14,32 @@
       href='http://kimgreenoughportfolio.azurewebsites.net/views/portfolio.html'>
         VIEW PORTFOLIO
     </a>
-    <div
-      id='followMeButton'
-      class='text-large link'
-      [class.inView]='enter'
-      href='http://kimgreenoughportfolio.azurewebsites.net/views/portfolio.html'>
-        VIEW PORTFOLIO
+
+
+    <div id='followContainer' [class.inView]='enter'>
+      <div class='social-links' [class.inView]='showSocialLinks'>
+        <a class='social-link' href='https://www.instagram.com/kimbyarting/' target='_blank'>
+          <img src='../../../../public/images/cover/instagramIcon.png' />
+        </a>
+        <a class='social-link' href='http://kimbyarting.tumblr.com/' target='_blank'>
+          <img src='../../../../public/images/cover/tumblrIcon.png' />
+        </a>
+        <a class='social-link' href='https://www.artstation.com/artist/kimbyarting' target='_blank'>
+          <img src='../../../../public/images/cover/artstationIcon.png' />
+        </a>
+        <a class='social-link' href='https://www.facebook.com/kimbyarting/' target='_blank'>
+          <img src='../../../../public/images/cover/facebookIcon.png' />
+        </a>
+        <a class='social-link' href='https://twitter.com/kimbyarting' target='_blank'>
+          <img src='../../../../public/images/cover/twitterIcon.png' />
+        </a>
+      </div>
+      <svg height="2" width="70">
+        <line x1="0" y1="0" x2="200" y2="0" style="stroke:rgb(0, 0, 0);stroke-width:2" />
+      </svg>
+      <div id='followMeButton' class='text-small link' (click)='showSocialLinks = !showSocialLinks;'>
+          FOLLOW ME
+      </div>
     </div>
   </div>
 </div>

@@ -1,3 +1,10 @@
+// TODO: Use transition mixin for all UI elements.
+// TODO: Only use animation for position moving (egyptgirl)
+// TODO: Standardize text sizes in common, otherwise make specific texts for id'd items
+// TODO: Separate out the cover to it's own 'scene' component to prepare for multiple.
+// TODO: Organize this file.
+// TODO: Add breakpoint for social links.
+
 @mixin basic-transition(){
   transition: all .2s ease-in-out;
   -moz-transition: all .2s ease-in-out;
@@ -52,9 +59,9 @@
   opacity:0;
 
   &.inView{
-    -webkit-animation: fadeIn 0.4s ease-in-out 0.2s 1 forwards;
-  	-moz-animation: fadeIn 0.4s ease-in-out 0.2s 1 forwards;
-  	-o-animation: fadeIn 0.4s ease-in-out 0.2s 1 forwards;
+    -webkit-animation: fadeIn 0.4s ease-in-out 0.15s 1 forwards;
+  	-moz-animation: fadeIn 0.4s ease-in-out 0.15s 1 forwards;
+  	-o-animation: fadeIn 0.4s ease-in-out 0.15s 1 forwards;
   }
 }
 
@@ -98,3 +105,46 @@
 	0% {right: 0%; opacity:0;}
 	100% {right: 44%; opacity:1;}
 }
+
+#followContainer{
+  position:absolute;
+  bottom:80px;
+  left:15px;
+
+  opacity:0;
+
+  &.inView{
+    -webkit-animation: fadeIn 0.4s ease-in-out 0.2s 1 forwards;
+  	-moz-animation: fadeIn 0.4s ease-in-out 0.2s 1 forwards;
+  	-o-animation: fadeIn 0.4s ease-in-out 0.2s 1 forwards;
+  }
+}
+
+#followMeButton{
+  margin-top:10px;
+}
+
+.social-links{
+  opacity:0;
+
+  &.inView{
+    opacity:1;
+  }
+
+  @include basic-transition();
+}
+
+.social-link{
+
+  width:30px;
+  height:30px;
+
+  margin-right:10px;
+  margin-left:10px;
+  display:inline-block;
+
+    img{
+      width:30px;
+      height:30px;
+    }
+  }

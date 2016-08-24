@@ -4,6 +4,10 @@
   -webkit-transition: all .2s ease-in-out;
 }
 
+@mixin text-font(){
+  font-family: 'Raleway', sans-serif;
+}
+
 $pink: #FFB8B6;
 
 /* TYPOGRAPHY */
@@ -11,7 +15,15 @@ $pink: #FFB8B6;
 .text-large{
   font-size:32px;
   font-weight:300;
-  font-family: 'Raleway', sans-serif;
+
+  @include text-font();
+}
+
+.text-small{
+  font-size:17px;
+  font-weight:400;
+
+  @include text-font();
 }
 
 /* COMMON PAGE ELEMENTS */
