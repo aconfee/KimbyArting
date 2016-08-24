@@ -1,5 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 
+/* Images used on the cover */
 import '../../../../public/images/cover/lightBlueBackground.png';
 import '../../../../public/images/cover/egyptGirlCover.png';
 import '../../../../public/images/cover/artstationIcon.png';
