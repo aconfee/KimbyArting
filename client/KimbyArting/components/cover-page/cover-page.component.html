@@ -1,6 +1,20 @@
 <div class='screensize-container'>
+  <div class='slide-container'>
+    <img class='screensize-background' src='../../../../public/images/cover/lightBlueBackground.png' />
+    <div id='egyptGirlCoverContainer' [class.inView]='enter'>
+      <img id='egyptGirlCover' src='../../../../public/images/cover/egyptGirlCover.png' />
+    </div>
+  </div>
   <div class='menu-container'>
-    <img class='logo' src='https://www.unavco.org/lib/images/wireframe-image.png' />
-    <div id='viewPortfolioButton' class='text-large link'>VIEW PORTFOLIO</div>
+    <img class='logo' [class.inView]='enter' src='../../../../public/images/cover/logo.png' />
+    <a
+      id='viewPortfolioButton'
+      class='text-large link'
+      [class.inView]='enter'
+      href='http://kimgreenoughportfolio.azurewebsites.net/views/portfolio.html'>
+        VIEW PORTFOLIO
+    </a>
   </div>
 </div>
+
+<!-- https://www.unavco.org/lib/images/wireframe-image.png -->

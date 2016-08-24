@@ -2,15 +2,21 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00B7FF; }
+  text-decoration: none;
+  color: inherit; }
 /* TYPOGRAPHY */
 .text-large {
-  font-size: 1.9em;
+  font-size: 32px;
+  font-weight: 300;
   font-family: 'Raleway', sans-serif; }
 
 /* COMMON PAGE ELEMENTS */
-.link:hover {
-  color: blue;
-  cursor: pointer; }
+.link {
+  transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out; }
+  .link:hover {
+    color: #FFB8B6;
+    cursor: pointer; }
 
 /* OVERLOADED DEFAULTS */

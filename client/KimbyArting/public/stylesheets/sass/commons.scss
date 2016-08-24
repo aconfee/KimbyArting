@@ -1,0 +1,19 @@
+
+/* TYPOGRAPHY */
+
+.text-large{
+  font-size:32px;
+  font-weight:300;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* COMMON PAGE ELEMENTS */
+
+.link{
+  &:hover{
+    color:blue;
+    cursor: pointer;
+  }
+}
+
+/* OVERLOADED DEFAULTS */

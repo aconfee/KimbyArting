@@ -1,8 +1,16 @@
+@mixin basic-transition(){
+  transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+}
+
+$pink: #FFB8B6;
 
 /* TYPOGRAPHY */
 
 .text-large{
-  font-size: 1.9em;
+  font-size:32px;
+  font-weight:300;
   font-family: 'Raleway', sans-serif;
 }
 
@@ -10,9 +18,11 @@
 
 .link{
   &:hover{
-    color:blue;
+    color:$pink;
     cursor: pointer;
   }
+
+  @include basic-transition();
 }
 
 /* OVERLOADED DEFAULTS */

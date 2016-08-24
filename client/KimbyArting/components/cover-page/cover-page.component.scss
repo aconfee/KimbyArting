@@ -1,3 +1,9 @@
+@mixin basic-transition(){
+  transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+}
+
 .screensize-container{
   top:0;
   right:0;
@@ -6,12 +12,12 @@
 
   position:fixed;
 
-  background-color:rgba(25, 25, 25, 0.1);
+  //background-color:rgba(25, 25, 25, 0.1);
 }
 
 .menu-container{
   top:0;
-  left:50px;
+  left:75px;
   bottom:0;
 
   width:300px;
@@ -20,7 +26,7 @@
 
   text-align:center;
 
-  background-color: rgba(25,25,25,0.1);
+  //background-color: rgba(25,25,25,0.1);
 }
 
 .logo{
@@ -28,8 +34,67 @@
   height:170px;
 
   margin-top:50px;
+  opacity:0;
+
+  &.inView{
+    -webkit-animation: fadeIn 0.4s ease-in-out 0.1s 1 forwards;
+  	-moz-animation: fadeIn 0.4s ease-in-out 0.1s 1 forwards;
+  	-o-animation: fadeIn 0.4s ease-in-out 0.1s 1 forwards;
+  }
 }
 
 #viewPortfolioButton{
   margin-top:70px;
+  letter-spacing: 2px;
+
+  display:inline-block;
+
+  opacity:0;
+
+  &.inView{
+    -webkit-animation: fadeIn 0.4s ease-in-out 0.2s 1 forwards;
+  	-moz-animation: fadeIn 0.4s ease-in-out 0.2s 1 forwards;
+  	-o-animation: fadeIn 0.4s ease-in-out 0.2s 1 forwards;
+  }
+}
+
+
+
+/* Egypt girl scene */
+.screensize-background{
+  position:absolute;
+
+  min-width:100%;
+  min-height:100%;
+}
+
+#egyptGirlCoverContainer{
+  top:0;
+  bottom:0;
+  right:0%;
+
+  &.inView{
+    -webkit-animation: egyptGirlEnter 0.8s ease-in-out 0.2s 1 forwards;
+  	-moz-animation: egyptGirlEnter 0.8s ease-in-out 0.2s 1 forwards;
+  	-o-animation: egyptGirlEnter 0.8s ease-in-out 0.2s 1 forwards;
+  }
+
+  position:fixed;
+}
+
+#egyptGirlCover{
+  height:100%;
+  max-height:100%;
+
+  position:absolute;
+}
+
+@-webkit-keyframes fadeIn {
+	0% {opacity:0;}
+	100% {opacity:1;}
+}
+
+@-webkit-keyframes egyptGirlEnter {
+	0% {right: 0%; opacity:0;}
+	100% {right: 44%; opacity:1;}
 }
