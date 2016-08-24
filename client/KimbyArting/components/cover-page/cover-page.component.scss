@@ -7,6 +7,7 @@
 
 @mixin basic-transition(){
   transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
   -moz-transition: all .2s ease-in-out;
   -webkit-transition: all .2s ease-in-out;
 }
@@ -47,6 +48,7 @@
     -webkit-animation: fadeIn 0.4s ease-in-out 0.1s 1 forwards;
   	-moz-animation: fadeIn 0.4s ease-in-out 0.1s 1 forwards;
   	-o-animation: fadeIn 0.4s ease-in-out 0.1s 1 forwards;
+    animation: fadeIn 0.4s ease-in-out 0.1s 1 forwards;
   }
 }
 
@@ -62,6 +64,7 @@
     -webkit-animation: fadeIn 0.4s ease-in-out 0.15s 1 forwards;
   	-moz-animation: fadeIn 0.4s ease-in-out 0.15s 1 forwards;
   	-o-animation: fadeIn 0.4s ease-in-out 0.15s 1 forwards;
+    animation: fadeIn 0.4s ease-in-out 0.15s 1 forwards;
   }
 }
 
@@ -84,6 +87,7 @@
     -webkit-animation: egyptGirlEnter 0.8s ease-in-out 0.2s 1 forwards;
   	-moz-animation: egyptGirlEnter 0.8s ease-in-out 0.2s 1 forwards;
   	-o-animation: egyptGirlEnter 0.8s ease-in-out 0.2s 1 forwards;
+    animation: egyptGirlEnter 0.8s ease-in-out 0.2s 1 forwards;
   }
 
   position:fixed;
@@ -117,6 +121,7 @@
     -webkit-animation: fadeIn 0.4s ease-in-out 0.2s 1 forwards;
   	-moz-animation: fadeIn 0.4s ease-in-out 0.2s 1 forwards;
   	-o-animation: fadeIn 0.4s ease-in-out 0.2s 1 forwards;
+    animation: fadeIn 0.4s ease-in-out 0.2s 1 forwards;
   }
 }
 
