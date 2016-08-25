@@ -7,7 +7,7 @@ $logo-animation-delay: 0.1s;
 $view-portfolio-button-animation-delay: 0.15s;
 $social-continer-animation-delay: 0.2s;
 
-$enter-animation-duration: 0.4s;
+$enter-animation-duration: 0.25s;
 
 @-webkit-keyframes fadeIn {
 	0% {opacity:0;}
@@ -158,7 +158,7 @@ $enter-animation-duration: 0.4s;
   right:0%;
 
   &.animate-enter{
-    @include begin-animate(egyptGirlEnter, 0.5s, 0.2s);
+    @include begin-animate(egyptGirlEnter, 0.4s, 0.2s);
   }
 
   position:fixed;
