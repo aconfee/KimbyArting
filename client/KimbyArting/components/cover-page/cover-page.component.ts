@@ -1,5 +1,8 @@
 import { Component, AfterViewInit } from '@angular/core';
 
+// Social.png is used in CSS. Not resolved by template loader.
+import '../../../../public/images/cover/social.png';
+
 @Component({
   selector: 'cover-page',
   templateUrl: './cover-page.component.html',
