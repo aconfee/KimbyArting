@@ -1,23 +1,23 @@
 <div class='screensize-container'>
   <div class='slide-container'>
     <img class='screensize-background' src='../../../../public/images/cover/lightBlueBackground.png' />
-    <div id='egyptGirlCoverContainer' [class.inView]='enter'>
+    <div id='egyptGirlCoverContainer' [class.animate-enter]='enter'>
       <img id='egyptGirlCover' src='../../../../public/images/cover/egyptGirlCover.png' />
     </div>
   </div>
   <div class='menu-container'>
-    <img class='logo' [class.inView]='enter' src='../../../../public/images/cover/logo.png' />
+    <img class='logo' [class.animate-enter]='enter' src='../../../../public/images/cover/logo.png' />
     <a
       id='viewPortfolioButton'
       class='text-large link'
-      [class.inView]='enter'
+      [class.animate-enter]='enter'
       href='http://kimgreenoughportfolio.azurewebsites.net/views/portfolio.html'>
         VIEW PORTFOLIO
     </a>
 
 
-    <div id='followContainer' [class.inView]='enter'>
-      <div class='social-links' [class.inView]='showSocialLinks'>
+    <div id='socialContainer' [class.animate-enter]='enter'>
+      <div class='social-links' [class.animate-enter]='showSocialLinks'>
         <a class='social-link' href='https://www.instagram.com/kimbyarting/' target='_blank'>
           <img src='../../../../public/images/cover/instagramIcon.png' />
         </a>

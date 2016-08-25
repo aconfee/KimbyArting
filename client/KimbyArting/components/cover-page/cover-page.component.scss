@@ -1,35 +1,33 @@
-// TODO: Use transition mixin for all UI elements.
-// TODO: Only use animation for position moving (egyptgirl)
 // TODO: Standardize text sizes in common, otherwise make specific texts for id'd items
 // TODO: Separate out the cover to it's own 'scene' component to prepare for multiple.
-// TODO: Organize this file.
 // TODO: Add breakpoint for social links.
 
-@mixin basic-transition(){
-  transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  -webkit-transition: all .2s ease-in-out;
-}
+$logo-animation-delay: 0.1s;
+$view-portfolio-button-animation-delay: 0.15s;
+$social-continer-animation-delay: 0.2s;
 
-@-webkit-keyframes basicFadeIn {
+$enter-animation-duration: 0.4s;
+
+@-webkit-keyframes fadeIn {
 	0% {opacity:0;}
 	100% {opacity:1;}
 }
 
-@-webkit-keyframes egyptGirlEnter {
-	0% {right: 0%; opacity:0;}
-	100% {right: 44%; opacity:1;}
-}
-
-@keyframes basicFadeIn {
+@keyframes fadeIn {
 	0% {opacity:0;}
 	100% {opacity:1;}
 }
 
-@keyframes egyptGirlEnter {
-	0% {right: 0%; opacity:0;}
-	100% {right: 44%; opacity:1;}
+@mixin basic-transition($duration, $delay){
+  transition: all $duration ease-in-out $delay;
+  -o-transition: all $duration ease-in-out $delay;
+  -moz-transition: all $duration ease-in-out $delay;
+  -webkit-transition: all $duration ease-in-out $delay;
+}
+
+@mixin begin-animate($name, $duration, $delay){
+  -webkit-animation: $name $duration ease-in-out $delay 1 forwards;
+  animation: $name $duration ease-in-out $delay 1 forwards;
 }
 
 .screensize-container{
@@ -57,30 +55,91 @@
   width:300px;
   height:170px;
 
-  margin-top:50px;
+  display:inline-block;
+
+  margin-top:8vh;
   opacity:0;
 
-  &.inView{
-    -webkit-animation: basicFadeIn 0.4s ease-in-out 0.1s 1 forwards;
-    animation: basicFadeIn 0.4s ease-in-out 0.1s 1 forwards;
+  &.animate-enter{
+    opacity:1;
+    @include begin-animate(fadeIn, $enter-animation-duration, $logo-animation-delay);
   }
 }
 
 #viewPortfolioButton{
-  margin-top:70px;
+  margin-top:12vh;
   letter-spacing: 2px;
 
   display:inline-block;
 
   opacity:0;
 
-  &.inView{
-    -webkit-animation: basicFadeIn 0.4s ease-in-out 0.15s 1 forwards;
-    animation: basicFadeIn 0.4s ease-in-out 0.15s 1 forwards;
+  &.animate-enter{
+    opacity:1;
+    @include begin-animate(fadeIn, $enter-animation-duration, $view-portfolio-button-animation-delay);
+  }
+}
+
+#socialContainer{
+  position:absolute; // Must be absolute to pin at bottom.
+  bottom:12vh;
+
+  // Center (centering an absolute object)
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+
+  opacity:0;
+
+  &.animate-enter{
+    opacity:1;
+    @include begin-animate(fadeIn, $enter-animation-duration, $social-continer-animation-delay);
+  }
+}
+
+#followMeButton{
+  margin-top:10px;
+}
+
+.social-links{
+  opacity:0;
+
+  &.animate-enter{
+    opacity:1;
+    @include basic-transition($enter-animation-duration, 0s);
+  }
+  @include basic-transition($enter-animation-duration, 0s);
+}
+
+.social-link{
+
+  width:30px;
+  height:30px;
+
+  margin: 0 10px;
+
+  display:inline-block;
+
+  img{
+    width:30px;
+    height:30px;
   }
 }
 
 
+
+  /**** SCENE *****/
+
+@-webkit-keyframes egyptGirlEnter {
+	0% {right: 0%; opacity:0;}
+	100% {right: 44%; opacity:1;}
+}
+
+@keyframes egyptGirlEnter {
+	0% {right: 0%; opacity:0;}
+	100% {right: 44%; opacity:1;}
+}
 
 /* Egypt girl scene */
 .screensize-background{
@@ -95,9 +154,8 @@
   bottom:0;
   right:0%;
 
-  &.inView{
-    -webkit-animation: egyptGirlEnter 0.8s ease-in-out 0.2s 1 forwards;
-    animation: egyptGirlEnter 0.8s ease-in-out 0.2s 1 forwards;
+  &.animate-enter{
+    @include begin-animate(egyptGirlEnter, 0.8s, 0.2s);
   }
 
   position:fixed;
@@ -109,48 +167,3 @@
 
   position:absolute;
 }
-
-#followContainer{
-  position:absolute;
-  bottom:80px;
-  left:15px;
-
-  opacity:0;
-
-  -webkit-animation: basicFadeIn 0.4s ease-in-out 0.2s 1 forwards;
-  animation: basicFadeIn 0.4s ease-in-out 0.2s 1 forwards;
-
-  &.inView{
-    -webkit-animation: basicFadeIn 0.4s ease-in-out 0.2s 1 forwards;
-    animation: basicFadeIn 0.4s ease-in-out 0.2s 1 forwards;
-  }
-}
-
-#followMeButton{
-  margin-top:10px;
-}
-
-.social-links{
-  opacity:0;
-
-  &.inView{
-    opacity:1;
-  }
-
-  @include basic-transition();
-}
-
-.social-link{
-
-  width:30px;
-  height:30px;
-
-  margin-right:10px;
-  margin-left:10px;
-  display:inline-block;
-
-    img{
-      width:30px;
-      height:30px;
-    }
-  }
