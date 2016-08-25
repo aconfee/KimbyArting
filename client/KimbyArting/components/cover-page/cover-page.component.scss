@@ -20,10 +20,10 @@ $enter-animation-duration: 0.4s;
 }
 
 @mixin basic-transition($duration, $delay){
-  transition: all $duration ease-in-out $delay;
   -o-transition: all $duration ease-in-out $delay;
   -moz-transition: all $duration ease-in-out $delay;
   -webkit-transition: all $duration ease-in-out $delay;
+  transition: all $duration ease-in-out $delay;
 }
 
 @mixin begin-animate($name, $duration, $delay){
@@ -53,22 +53,26 @@ $enter-animation-duration: 0.4s;
 }
 
 .logo{
-  width:300px;
-  height:170px;
+  min-height:200px;
+
+  width:auto;
+  height:44vh;
+
+  max-width:100%;
+  max-height:100%;
 
   display:inline-block;
 
-  margin-top:8vh;
+  margin-top:2vh;
   opacity:0;
 
   &.animate-enter{
-    opacity:1;
     @include begin-animate(fadeIn, $enter-animation-duration, $logo-animation-delay);
   }
 }
 
 #viewPortfolioButton{
-  margin-top:12vh;
+  margin-top:4vh;
   letter-spacing: 2px;
 
   display:inline-block;
@@ -76,7 +80,6 @@ $enter-animation-duration: 0.4s;
   opacity:0;
 
   &.animate-enter{
-    opacity:1;
     @include begin-animate(fadeIn, $enter-animation-duration, $view-portfolio-button-animation-delay);
   }
 }
@@ -94,7 +97,6 @@ $enter-animation-duration: 0.4s;
   opacity:0;
 
   &.animate-enter{
-    opacity:1;
     @include begin-animate(fadeIn, $enter-animation-duration, $social-continer-animation-delay);
   }
 }
@@ -156,7 +158,7 @@ $enter-animation-duration: 0.4s;
   right:0%;
 
   &.animate-enter{
-    @include begin-animate(egyptGirlEnter, 0.8s, 0.2s);
+    @include begin-animate(egyptGirlEnter, 0.5s, 0.2s);
   }
 
   position:fixed;

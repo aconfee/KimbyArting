@@ -27,6 +27,8 @@ export class CoverPageComponent implements AfterViewInit{
   }
 
   ngAfterViewInit() {
-    this.enter = true;
+    setTimeout(() => {
+      this.enter = true;
+    }, 200);
   }
 }
