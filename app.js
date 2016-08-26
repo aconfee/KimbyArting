@@ -45,7 +45,11 @@ app.use(function(req, res, next) {
 });
 
 //app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'dist')));
+var oneMonth = 2592000;
+app.use(express.static(path.join(__dirname, 'dist'), {
+  etag: true,
+  maxage: oneMonth
+}));
 
 // Serve our app to the browser. The Express static function will automatically
 // default to any file called 'index'. So our angular index template is defaulted

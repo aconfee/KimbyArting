@@ -53,13 +53,15 @@ $enter-animation-duration: 0.25s;
 }
 
 .logo{
-  min-height:200px;
+  width:300px;
+  height:320px;
+  //min-height:200px;
 
-  width:auto;
-  height:44vh;
+  //width:auto;
+  //height:44vh;
 
-  max-width:100%;
-  max-height:100%;
+  //max-width:100%;
+  //max-height:100%;
 
   display:inline-block;
 
@@ -112,6 +114,7 @@ $enter-animation-duration: 0.25s;
     opacity:1;
     @include basic-transition($enter-animation-duration, 0s);
   }
+
   @include basic-transition($enter-animation-duration, 0s);
 }
 
@@ -123,11 +126,6 @@ $enter-animation-duration: 0.25s;
   margin: 0 10px;
 
   display:inline-block;
-
-  /*img{
-    width:30px;
-    height:30px;
-  }*/
 }
 
 .instagram, .tumblr, .artstation, .facebook, .twitter {
@@ -177,6 +175,10 @@ $enter-animation-duration: 0.25s;
 
   min-width:100%;
   min-height:100%;
+}
+
+.egypt-girl-cover-background{
+  background-color:#dbdaf8;
 }
 
 #egyptGirlCoverContainer{
