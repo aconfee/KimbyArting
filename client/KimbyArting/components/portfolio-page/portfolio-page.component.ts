@@ -1,5 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 
+
 @Component({
   selector: 'portfolio-page',
   templateUrl: './portfolio-page.component.html',
@@ -8,10 +9,23 @@ import { Component, AfterViewInit } from '@angular/core';
 
 export class PortfolioPageComponent implements AfterViewInit{
 
-  constructor(){
-  }
+  domain: string = 'http://localhost:3000'
+
+  images: string[] = [
+    this.domain + '/assets/egyptGirlCover.png',
+    this.domain + '/assets/egyptGirlCover.png',
+    this.domain + '/assets/egyptGirlCover.png',
+    this.domain + '/assets/egyptGirlCover.png',
+    this.domain + '/assets/egyptGirlCover.png',
+    this.domain + '/assets/egyptGirlCover.png'
+  ];
+
+
+  constructor() { }
 
   ngAfterViewInit() {
 
   }
+
+
 }
