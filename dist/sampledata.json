@@ -1,0 +1,33 @@
+{
+	"gallery": {
+		"characters": {
+			"cover": "/assets/egyptGirlCover.png",
+			"end": "/assets/egyptGirlCover.png",
+			"projects": {
+				"spacePrincesses": {
+					"images": [
+						"/assets/egyptGirlCover.png",
+						"/assets/egyptGirlCover.png",
+						"/assets/egyptGirlCover.png",
+						"/assets/egyptGirlCover.png"
+					],
+					"thumbs": [
+						"/assets/egyptGirlCover.png",
+						"/assets/gyptGirlCover.png",
+						"/assets/egyptGirlCover.png"
+					]
+				},
+				"fishbowls": {
+					"images": [
+						"/assets/egyptGirlCover.png",
+						"/assets/egyptGirlCover.png"
+					],
+					"thumbs": [
+						"/assets/egyptGirlCover.png",
+						"/assets/egyptGirlCover.png"
+					]
+				}
+			}
+		}
+	}
+}
