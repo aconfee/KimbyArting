@@ -42,7 +42,7 @@ $enter-animation-duration: 0.25s;
 
 .menu-container{
   top:0;
-  left:75px;
+  left:15vh;
   bottom:0;
 
   width:300px;
@@ -55,17 +55,10 @@ $enter-animation-duration: 0.25s;
 .logo{
   width:300px;
   height:320px;
-  //min-height:200px;
-
-  //width:auto;
-  //height:44vh;
-
-  //max-width:100%;
-  //max-height:100%;
 
   display:inline-block;
 
-  margin-top:2vh;
+  margin-top:8vh;
   opacity:0;
 
   &.animate-enter{
@@ -114,9 +107,11 @@ $enter-animation-duration: 0.25s;
 
 .social-links{
   opacity:0;
+	margin-bottom:-5px;
 
   &.animate-enter{
     opacity:1;
+		transform: translateY(-5px);
     @include basic-transition($enter-animation-duration, 0s);
   }
 
