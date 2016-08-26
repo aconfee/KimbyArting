@@ -1,0 +1,14 @@
+.gallery-image{
+  display:inline-block;
+  height:94vh;
+
+  margin:3vh 15px;
+}
+
+.gallery-image-container{
+  white-space:nowrap;
+  width:100vw;
+  height:100vh;
+  position:relative;
+  overflow-y:hidden;
+}

@@ -100,11 +100,6 @@ $enter-animation-duration: 0.25s;
   margin-top:10px;
 }
 
-// Disable any items, in this case .social-links, that aren't critical path.
-.disable{
-	display:none;
-}
-
 .social-links{
   opacity:0;
 	margin-bottom:-5px;
