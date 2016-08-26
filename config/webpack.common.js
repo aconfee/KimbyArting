@@ -59,6 +59,6 @@ module.exports = {
       root: helpers.root(),
       verbose: true,
       dry: false
-    })
+    }),
   ]
 };
