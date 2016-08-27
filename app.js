@@ -14,6 +14,63 @@ var apiRoutes = require('./api/routes/index');
 var app = express();
 app.use(compression());
 
+var fs = require('fs');
+var path = require('path');
+
+var projectdata = {
+  "portfolio":{}
+};
+
+function getDirectories(srcpath) {
+  return fs.readdirSync(srcpath).filter(function(file) {
+    return fs.statSync(path.join(srcpath, file)).isDirectory();
+  });
+}
+console.log(getDirectories('./public/assets/portfolio/'));
+
+projectdata.portfolio['characters'] = 5;
+projectdata.portfolio['environments'] = 'hello';
+console.log('object: ' + projectdata.portfolio.characters);
+
+/*
+ var traverseFileSystem = function (currentPath) {
+    console.log(currentPath);
+
+    var files = fs.readdirSync(currentPath);
+    for (var i in files) {
+       var currentFile = currentPath + '/' + files[i];
+       var stats = fs.statSync(currentFile);
+
+       // We have a file!
+       if (stats.isFile()) {
+         console.log('file: ' + path.basename(currentFile));
+         var directories = path.dirname(currentFile);
+         directories = directories.replace('.', '');
+         directoryList = directories.split('/');
+         var finalDirectories = [];
+         for(var q in directoryList){
+           if(directoryList[q] !== '' && directoryList[q] !== 'public' && directoryList[q] !== 'assets' && directoryList[q] !== 'portfolio'){
+             finalDirectories.push(directoryList[q]);
+           }
+         }
+
+         console.log('filePath: ' + finalDirectories);
+         var parent = 'portfolio';
+         for(var j in finalDirectories){
+           projectdata[parent][finalDirectories[j]] = {};
+           parent = finalDirectories[j];
+         }
+         console.log('data afterupdate ' + projectdata);
+
+       }
+      else if (stats.isDirectory()) {
+        traverseFileSystem(currentFile);
+      }
+   }
+ };
+traverseFileSystem('./public/assets/portfolio/');
+*/
+
 // view engine setup
 //app.set('views', path.join(__dirname, 'app_server', 'views'));
 //app.set('view engine', 'jade');

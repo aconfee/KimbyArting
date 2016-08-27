@@ -10,17 +10,24 @@ import 'rxjs/add/operator/toPromise';
 
 export class PortfolioPageComponent implements AfterViewInit{
 
-  private images: string[];
-  private thumbs: string[];
-  private currentGallery: string = 'characters';
-  private currentProject: string = 'spacePrincesses';
+  private images: string[] = [];
+  private thumbs: string[] = [];
+  private galleryCategory: string = 'characters';
+  private gallerySpecialization: string = 'concept';
+  //private project: string = 'spacePrincesses';
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+  }
 
   ngAfterViewInit() {
     this.getData().then((data) => {
-       this.images = data.gallery[this.currentGallery].projects[this.currentProject].images;
-       this.thumbs = data.gallery[this.currentGallery].projects[this.currentProject].thumbs;
+
+       let projects = data.portfolio[this.galleryCategory][this.gallerySpecialization].projects;
+       for(var projectKey in projects){
+          this.images = this.images.concat(projects[projectKey].images);
+          this.thumbs = this.thumbs.concat(projects[projectKey].thumbs);
+       }
+
      });
   }
 
