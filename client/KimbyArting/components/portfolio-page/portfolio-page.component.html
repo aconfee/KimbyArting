@@ -1,3 +1,5 @@
 <div class='gallery-image-container'>
-  <img class='gallery-image' src='{{imagepath}}' *ngFor='let imagepath of images' />
+  <img class='gallery-image' src='{{ coverPhoto }}' />
+  <img class='gallery-image' src='{{ imagepath }}' *ngFor='let imagepath of images' />
+  <img class='gallery-image' src='{{ endPhoto }}' />
 </div>

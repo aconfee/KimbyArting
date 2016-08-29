@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
@@ -8,19 +8,23 @@ import 'rxjs/add/operator/toPromise';
   styleUrls: ['./portfolio-page.component.scss']
 })
 
-export class PortfolioPageComponent implements AfterViewInit{
+export class PortfolioPageComponent implements OnInit{
 
+  private coverPhoto: string;
+  private endPhoto: string;
   private images: string[] = [];
   private thumbs: string[] = [];
   private galleryCategory: string = 'characters';
   private gallerySpecialization: string = 'concept';
-  //private project: string = 'spacePrincesses';
 
   constructor(private http: Http) {
   }
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.getData().then((data) => {
+
+      this.coverPhoto = data.portfolio[this.galleryCategory][this.gallerySpecialization].cover;
+      this.endPhoto = data.portfolio[this.galleryCategory][this.gallerySpecialization].end;
 
        let projects = data.portfolio[this.galleryCategory][this.gallerySpecialization].projects;
        for(var projectKey in projects){
@@ -32,10 +36,10 @@ export class PortfolioPageComponent implements AfterViewInit{
   }
 
   getData(): Promise<any>{
-
-    return this.http.get('sampledata.json')
+    return this.http.get('portfolioData.json')
      .toPromise()
      .then((response) => {
+        console.log('returning data');
         return response.json();
      })
      .catch(this.handleError);
