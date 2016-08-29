@@ -10,36 +10,60 @@ import 'rxjs/add/operator/toPromise';
 
 export class PortfolioPageComponent implements OnInit{
 
-  private coverPhoto: string;
-  private endPhoto: string;
-  private images: string[] = [];
-  private thumbs: string[] = [];
-  private galleryCategory: string = 'characters';
-  private gallerySpecialization: string = 'concept';
+  private portfolioData;
+
+  private coverPhotoVm: string;
+  private endPhotoVm: string;
+  private imagesVm: string[] = [];
+  private thumbsVm: string[] = [];
+
+  // TODO: this will be moved into or passed into menu component
+  private categoriesVm: any[] = [];
 
   constructor(private http: Http) {
   }
 
   ngOnInit() {
     this.getData().then((data) => {
+      this.portfolioData = data;
 
-      this.coverPhoto = data.portfolio[this.galleryCategory][this.gallerySpecialization].cover;
-      this.endPhoto = data.portfolio[this.galleryCategory][this.gallerySpecialization].end;
+      // TODO: this will be passed into menu component
+      for(var categoryKey in this.portfolioData.portfolio){
+        let subcategoriesVm: string[] = [];
+        for(var subcategory in this.portfolioData.portfolio[categoryKey]){
+          subcategoriesVm.push(subcategory.substring(3, subcategory.length));
+        }
 
-       let projects = data.portfolio[this.galleryCategory][this.gallerySpecialization].projects;
-       for(var projectKey in projects){
-          this.images = this.images.concat(projects[projectKey].images);
-          this.thumbs = this.thumbs.concat(projects[projectKey].thumbs);
-       }
+        this.categoriesVm.push({
+          'name': categoryKey.substring(3, categoryKey.length),
+          'subcategories': subcategoriesVm
+        });
+      }
 
-     });
+      this.setGallery(0, 0);
+    });
+  }
+
+  setGallery(categoryIndex: number, subcategoryIndex: number): void{
+    let category = Object.keys(this.portfolioData.portfolio)[categoryIndex];
+    let subcategory = Object.keys(this.portfolioData.portfolio[category])[subcategoryIndex];
+
+    this.coverPhotoVm = this.portfolioData.portfolio[category][subcategory].cover;
+    this.endPhotoVm = this.portfolioData.portfolio[category][subcategory].end;
+
+    this.imagesVm = [];
+    this.thumbsVm = [];
+     let projects = this.portfolioData.portfolio[category][subcategory].projects;
+     for(var projectKey in projects){
+        this.imagesVm = this.imagesVm.concat(projects[projectKey].images);
+        this.thumbsVm = this.thumbsVm.concat(projects[projectKey].thumbs);
+     }
   }
 
   getData(): Promise<any>{
     return this.http.get('portfolioData.json')
      .toPromise()
      .then((response) => {
-        console.log('returning data');
         return response.json();
      })
      .catch(this.handleError);

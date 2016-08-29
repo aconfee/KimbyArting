@@ -1,5 +1,16 @@
+<div class='menu-container'>
+  <div class='category-link' style='diaplay:block;' *ngFor='let category of categoriesVm; let i=index'>
+    {{ category.name }}
+    <div class='subcategory-link'
+      style='display:block;'
+      *ngFor='let subcategory of category.subcategories; let j=index'
+      (click)='setGallery(i, j);'>
+      - {{ subcategory }}
+    </div>
+  </div>
+</div>
 <div class='gallery-image-container'>
-  <img class='gallery-image' src='{{ coverPhoto }}' />
-  <img class='gallery-image' src='{{ imagepath }}' *ngFor='let imagepath of images' />
-  <img class='gallery-image' src='{{ endPhoto }}' />
+  <img class='gallery-image' src='{{ coverPhotoVm }}' />
+  <img class='gallery-image' src='{{ imagepath }}' *ngFor='let imagepath of imagesVm' />
+  <img class='gallery-image' src='{{ endPhotoVm }}' />
 </div>
