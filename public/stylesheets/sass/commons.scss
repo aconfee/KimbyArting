@@ -29,6 +29,8 @@ $pink: #FFB8B6;
 /* COMMON PAGE ELEMENTS */
 
 .link{
+  color:black;
+  
   &:hover{
     color:$pink;
     cursor: pointer;

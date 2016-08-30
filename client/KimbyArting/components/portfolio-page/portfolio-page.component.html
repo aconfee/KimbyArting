@@ -1,16 +1,30 @@
-<div class='menu-container'>
-  <div class='category-link' style='diaplay:block;' *ngFor='let category of categoriesVm; let i=index'>
-    {{ category.name }}
-    <div class='subcategory-link'
-      style='display:block;'
-      *ngFor='let subcategory of category.subcategories; let j=index'
-      (click)='setGallery(i, j);'>
-      - {{ subcategory }}
-    </div>
-  </div>
-</div>
-<div class='gallery-image-container'>
+<div class='gallery-image-container' [hidden]='showContact'>
   <img class='gallery-image' src='{{ coverPhotoVm }}' />
   <img class='gallery-image' src='{{ imagepath }}' *ngFor='let imagepath of imagesVm' />
-  <img class='gallery-image' src='{{ endPhotoVm }}' />
+  <!--img class='gallery-image' src='{{ endPhotoVm }}' /-->
+</div>
+
+<div class='gallery-image-container' style='margin-left=240px;width:500px;text-align:center;' [hidden]='!showContact'>
+  <img src='../../../../public/assets/contactInfo.png' />
+</div>
+
+<div class='menu-container'>
+  <img class='logo' src='../../../../public/assets/cover/logo.png' />
+  <div id='directory'>DIRECTORY</div>
+  <div class='category link' *ngFor='let category of categoriesVm; let i=index'>
+    {{ category.name | uppercase }}
+    <div class='subcategory link'
+      *ngFor='let subcategory of category.subcategories; let j=index'
+      (click)='setGallery(i, j);'>
+      {{ subcategory }}
+    </div>
+  </div>
+  <div id='contactContainer'>
+    <svg height="1px" width="70px">
+      <line x1="0" y1="0" x2="70" y2="0" style="stroke:rgb(0, 0, 0);stroke-width:1px" />
+    </svg>
+    <div id='contactMeButton' class='text-small link' (click)='showContact = true;'>
+        CONTACT
+    </div>
+  </div>
 </div>

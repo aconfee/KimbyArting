@@ -1,9 +1,60 @@
+$menu-width:240px;
+
+.menu-container{
+  width:$menu-width;
+  top:0;
+  bottom:0;
+  position:fixed;
+  background-color:rgba(255, 255, 255, 0.9);
+  text-align:center;
+}
+
+.logo{
+  width:190px;
+  height:auto;
+
+  margin-top: 20px;
+}
+
+#directory{
+  font-family:'calendas_plusregular', sans-serif;
+  font-style:italic;
+  margin:30px 0 40px 0;
+}
+
+.category{
+  font-family: 'Raleway', sans-serif;
+  font-size:23px;
+  font-weight:300;
+  letter-spacing:1px;
+}
+
+.subcategory{
+  font-family: 'Raleway', sans-serif;
+  font-size:21px;
+  font-weight:200;
+}
+
+#contactContainer{
+  position:absolute;
+  bottom:12vh;
+  left:0;
+  right:0;
+  margin:0 auto;
+}
+
+#contactMeButton{
+  margin-top:10px;
+}
+
 .gallery-image-container{
   white-space:nowrap;
   width:100vw;
   height:100vh;
   position:relative;
   overflow-y:hidden;
+
+  padding-left:$menu-width;
 
   img{
     display:inline-block;

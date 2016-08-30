@@ -17,6 +17,9 @@ export class PortfolioPageComponent implements OnInit{
   private imagesVm: string[] = [];
   private thumbsVm: string[] = [];
 
+  // TODO: Clean this hack.
+  private showContact: boolean = false;
+
   // TODO: this will be moved into or passed into menu component
   private categoriesVm: any[] = [];
 
@@ -45,6 +48,9 @@ export class PortfolioPageComponent implements OnInit{
   }
 
   setGallery(categoryIndex: number, subcategoryIndex: number): void{
+    // TODO: Clean this hack!
+    this.showContact = false;
+
     let category = Object.keys(this.portfolioData.portfolio)[categoryIndex];
     let subcategory = Object.keys(this.portfolioData.portfolio[category])[subcategoryIndex];
 
