@@ -9,6 +9,12 @@ $menu-width:240px;
   text-align:center;
 }
 
+.gallery-padding{
+  width:$menu-width;
+  height:100vh;
+  display:inline-block;
+}
+
 .logo{
   width:190px;
   height:auto;
@@ -53,8 +59,6 @@ $menu-width:240px;
   height:100vh;
   position:relative;
   overflow-y:hidden;
-
-  padding-left:$menu-width;
 
   img{
     display:inline-block;
