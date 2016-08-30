@@ -30,10 +30,11 @@ $pink: #FFB8B6;
 
 .link{
   color:black;
-  
+
   &:hover{
     color:$pink;
     cursor: pointer;
+    @include basic-transition();
   }
 
   @include basic-transition();

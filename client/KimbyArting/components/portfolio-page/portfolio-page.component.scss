@@ -1,4 +1,12 @@
 $menu-width:240px;
+$pink: #FFB8B6;
+
+@mixin basic-transition($duration, $delay){
+  -o-transition: all $duration ease-in-out $delay;
+  -moz-transition: all $duration ease-in-out $delay;
+  -webkit-transition: all $duration ease-in-out $delay;
+  transition: all $duration ease-in-out $delay;
+}
 
 .menu-container{
   width:$menu-width;
@@ -33,12 +41,28 @@ $menu-width:240px;
   font-size:23px;
   font-weight:300;
   letter-spacing:1px;
+
+  margin:5px 0;
+
+  overflow:hidden;
+  max-height:30px;
+
+  &.expanded{
+    max-height:100px;
+    @include basic-transition(0.5, 0);
+  }
+
+  @include basic-transition(0.5, 0);
 }
 
 .subcategory{
   font-family: 'Raleway', sans-serif;
   font-size:21px;
   font-weight:200;
+
+  &.active{
+    color:$pink;
+  }
 }
 
 #contactContainer{

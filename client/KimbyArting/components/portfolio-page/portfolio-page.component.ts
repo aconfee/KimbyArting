@@ -23,6 +23,10 @@ export class PortfolioPageComponent implements OnInit{
   // TODO: this will be moved into or passed into menu component
   private categoriesVm: any[] = [];
 
+  private expandedCategory: number;
+  private activeCategory: number;
+  private activeSubcategory: number;
+
   constructor(private http: Http) {
   }
 
@@ -43,6 +47,10 @@ export class PortfolioPageComponent implements OnInit{
         });
       }
 
+      this.expandedCategory = 0;
+      this.activeCategory = 0;
+      this.activeSubcategory = 0;
+
       this.setGallery(0, 0);
     });
   }
@@ -50,6 +58,9 @@ export class PortfolioPageComponent implements OnInit{
   setGallery(categoryIndex: number, subcategoryIndex: number): void{
     // TODO: Clean this hack!
     this.showContact = false;
+
+    this.activeCategory = categoryIndex;
+    this.activeSubcategory = subcategoryIndex;
 
     let category = Object.keys(this.portfolioData.portfolio)[categoryIndex];
     let subcategory = Object.keys(this.portfolioData.portfolio[category])[subcategoryIndex];
