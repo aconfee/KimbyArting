@@ -24,6 +24,10 @@ function mapImages(files, url){
   return newFiles;
 }
 
+function getFile(path){
+  var obj = JSON.parse(fs.readFileSync('file', 'utf8'));
+}
+
 var buildPortfolioDataObject = function(){
   var root = './public/assets/portfolio/';
 
@@ -42,22 +46,27 @@ var buildPortfolioDataObject = function(){
       portfolioData.portfolio[categories[i]][specializations[j]] = {
         'cover': path.join('/assets/portfolio/', categories[i], specializations[j], 'cover.png'),
         'end': path.join('/assets/portfolio/', categories[i], specializations[j], 'end.png'),
-        'projects':{}
+        'projects':[]
       };
 
       // SPACEPRINCESS, FISHBOWLS
       var projects = getDirectories(path.join(root, categories[i], specializations[j]));
       for(var k in projects){
-        portfolioData.portfolio[categories[i]][specializations[j]].projects[projects[k]] = { 'images': [], 'thumbs': [] };
+
+        portfolioData.portfolio[categories[i]][specializations[j]].projects.push({
+          'name': projects[k],
+          'images': [],
+          'thumbs': []
+        });
 
         // IMAGES
-        portfolioData.portfolio[categories[i]][specializations[j]].projects[projects[k]].images = mapImages(
+        portfolioData.portfolio[categories[i]][specializations[j]].projects[k].images = mapImages(
           getFiles(path.join(root, categories[i], specializations[j], projects[k], 'images')),
           path.join('/assets/portfolio/', categories[i], specializations[j], projects[k], 'images')
         );
 
         // THUMBS
-        portfolioData.portfolio[categories[i]][specializations[j]].projects[projects[k]].thumbs = mapImages(
+        portfolioData.portfolio[categories[i]][specializations[j]].projects[k].thumbs = mapImages(
           getFiles(path.join(root, categories[i], specializations[j], projects[k], 'thumbs')),
           path.join('/assets/portfolio', categories[i], specializations[j], projects[k], 'thumbs')
         );

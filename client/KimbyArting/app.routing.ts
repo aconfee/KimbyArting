@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CoverPageComponent } from './components/cover-page/cover-page.component';
 import { PortfolioPageComponent } from './components/portfolio-page/portfolio-page.component';
+import { ContactPageComponent } from './components/contact-page/contact-page.component';
 
 const appRoutes: Routes = [
   {
@@ -16,6 +17,10 @@ const appRoutes: Routes = [
   {
     path: 'portfolio',
     component: PortfolioPageComponent
+  },
+  {
+    path: 'contact',
+    component: ContactPageComponent
   }
 ];
 

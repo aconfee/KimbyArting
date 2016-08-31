@@ -1,0 +1,79 @@
+.contact-container{
+  width:75vw;
+  max-width:1000px;
+  height:auto;
+
+  top:50%;
+	transform:translate(-50%, -50%);
+  left:50%;
+
+  position:fixed;
+
+  padding:30px 30px;
+  border:1px solid black;
+}
+
+.right{
+  width:50%;
+  float:right;
+  display:inline-block;
+  text-align:center;
+
+
+  img{
+    width:100%;
+  }
+}
+
+.left{
+  width:50%;
+  float:left;
+  overflow-y:auto;
+
+  display:inline-block;
+}
+
+.label{
+  font-family:'calendas_plusregular', sans-serif;
+  font-style:italic;
+  font-size:12px;
+}
+
+.contact-details{
+  font-family: 'Raleway', sans-serif;
+  font-size:20px;
+  font-weight:300;
+  text-align:center;
+}
+
+.contact-detail{
+  margin:5px 0;
+}
+
+.about{
+  font-family:'calendas_plusregular', sans-serif;
+  font-style:italic;
+  font-size:15px;
+  line-height:1.4;
+
+  margin: 30px 15px 10px 15px;
+}
+
+#back-to-portfolio-button{
+  text-align:center;
+
+  font-family: 'Raleway', sans-serif;
+  font-size:20px;
+  font-weight:300;
+  letter-spacing:1px;
+
+  margin-top:40px;
+}
+
+.logo-container{
+  text-align: center;
+}
+
+.logo{
+  width:100px;
+}
