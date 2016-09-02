@@ -1,7 +1,19 @@
 <div galleryScroll class='gallery-image-container'>
   <div class='gallery-padding'></div>
   <img class='gallery-image' src='{{ coverPhotoVm }}' />
+  <!--
   <img class='gallery-image' src='{{ imagepath }}' *ngFor='let imagepath of imagesVm' />
+-->
+  <div style='display:inline-block;'*ngFor='let project of projects'>
+    <div *ngIf='project.plaque' class='gallery-block plaque'>
+      <div class='gallery-block-content'>
+        <div class='text-small-sarif italic plaque-title'>PROJECT</div>
+        <div class='text-large-sarif'>{{ project.plaque.title }}</div>
+        <p class='text-medium-sarif plaque-content'>{{ project.plaque.content }}</p>
+      </div>
+    </div>
+    <img class='gallery-image' src='{{ imagepath }}' *ngFor='let imagepath of project.images' />
+  </div>
   <div class='gallery-block gallery-end'>
     <div class='gallery-block-content'>
       <img src='../../../../public/assets/koala.png' />
@@ -9,7 +21,6 @@
       <div class='link gallery-end-link' (click)='nextSection()'>NEXT SECTION</div>
     </div>
   </div>
-  <!--img class='gallery-image' src='{{ endPhotoVm }}' /-->
 </div>
 
 <div class='menu-container'>

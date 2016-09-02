@@ -21,6 +21,8 @@ export class PortfolioPageComponent implements OnInit {
   private imagesVm: string[] = [];
   private thumbsVm: string[] = [];
 
+  private projects: any = [];
+
   // TODO: this will be moved into or passed into menu component
   private categoriesVm: any[] = [];
 
@@ -102,6 +104,8 @@ export class PortfolioPageComponent implements OnInit {
         this.imagesVm = this.imagesVm.concat(projects[projectKey].images);
         this.thumbsVm = this.thumbsVm.concat(projects[projectKey].thumbs);
      }
+
+     this.projects = this.portfolioData.portfolio[category][subcategory].projects;
 
      this.galleryScrollDirective.setScrollX(0);
   }

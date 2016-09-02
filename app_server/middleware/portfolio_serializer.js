@@ -53,10 +53,21 @@ var buildPortfolioDataObject = function(){
       var projects = getDirectories(path.join(root, categories[i], specializations[j]));
       for(var k in projects){
 
+        var plaqueObject;
+        try{
+          plaqueObject = JSON.parse(fs.readFileSync(
+            path.join(root, categories[i], specializations[j], projects[k], 'plaque.json')
+          ));
+        }
+        catch(ex){
+          plaqueObject = null;
+        }
+
         portfolioData.portfolio[categories[i]][specializations[j]].projects.push({
           'name': projects[k],
           'images': [],
-          'thumbs': []
+          'thumbs': [],
+          'plaque': plaqueObject
         });
 
         // IMAGES
