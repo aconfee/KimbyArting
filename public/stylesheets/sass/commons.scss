@@ -26,6 +26,11 @@ $pink: #FFB8B6;
   @include text-font();
 }
 
+.text-small-description{
+  font-family:'calendas_plusregular', sans-serif;
+  font-size:12px;
+}
+
 /* COMMON PAGE ELEMENTS */
 
 .link{
