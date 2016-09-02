@@ -1,4 +1,4 @@
-<div class='gallery-image-container'>
+<div id='gallery-container' #galleryContainer (onScroll)="onScroll($event)" [scrollTo]="galleryScrollX" class='gallery-image-container'>
   <div class='gallery-padding'></div>
   <img class='gallery-image' src='{{ coverPhotoVm }}' />
   <img class='gallery-image' src='{{ imagepath }}' *ngFor='let imagepath of imagesVm' />

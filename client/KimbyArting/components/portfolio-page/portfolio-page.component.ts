@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
@@ -14,7 +14,6 @@ export class PortfolioPageComponent implements OnInit{
 
   private coverPhotoVm: string;
   private endPhotoVm: string;
-
   private imagesVm: string[] = [];
   private thumbsVm: string[] = [];
 
@@ -25,10 +24,16 @@ export class PortfolioPageComponent implements OnInit{
   private activeCategory: number;
   private activeSubcategory: number;
 
-  constructor(private http: Http) {
+  private galleryScrollX: number;
+
+  constructor(private http: Http) {}
+
+  onScroll(scrollX: number) {
+    this.galleryScrollX = scrollX;
   }
 
   ngOnInit() {
+
     this.getData().then((data) => {
       this.portfolioData = data;
 
@@ -54,6 +59,8 @@ export class PortfolioPageComponent implements OnInit{
   }
 
   setGallery(categoryIndex: number, subcategoryIndex: number): void{
+    this.galleryScrollX = 0;
+
     this.activeCategory = categoryIndex;
     this.activeSubcategory = subcategoryIndex;
 

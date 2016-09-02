@@ -11,7 +11,7 @@ $pink: #FFB8B6;
 .menu-container{
   width:$menu-width;
   top:0;
-  bottom:0;
+  bottom:3vh; // Match images and stay above scroll bar.
   position:fixed;
   background-color:rgba(255, 255, 255, 0.9);
   text-align:center;

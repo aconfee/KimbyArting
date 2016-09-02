@@ -11,6 +11,9 @@ import { CoverPageComponent } from './components/cover-page/cover-page.component
 import { PortfolioPageComponent } from './components/portfolio-page/portfolio-page.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 
+// Directives
+import { ScrollToDirective } from './components/scroll-directive/scroll-directive';
+
 import { ExampleThingComponent } from './components/exampleThing/example-thing.component';
 
 // Application services
@@ -23,6 +26,7 @@ import { ExampleService } from './services/example.service';
     HttpModule
   ],
   declarations: [
+    ScrollToDirective,
     ExampleThingComponent,
     CoverPageComponent,
     PortfolioPageComponent,
