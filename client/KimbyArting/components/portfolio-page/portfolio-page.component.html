@@ -2,6 +2,13 @@
   <div class='gallery-padding'></div>
   <img class='gallery-image' src='{{ coverPhotoVm }}' />
   <img class='gallery-image' src='{{ imagepath }}' *ngFor='let imagepath of imagesVm' />
+  <div class='gallery-block gallery-end'>
+    <div class='gallery-block-content'>
+      <img src='../../../../public/assets/koala.png' />
+      <p class='text-small-description'>You've reached the edge of space.</p>
+      <div class='link gallery-end-link' (click)='nextSection()'>NEXT SECTION</div>
+    </div>
+  </div>
   <!--img class='gallery-image' src='{{ endPhotoVm }}' /-->
 </div>
 

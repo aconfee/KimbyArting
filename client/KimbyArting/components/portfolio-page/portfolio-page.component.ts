@@ -58,8 +58,33 @@ export class PortfolioPageComponent implements OnInit {
     });
   }
 
+  nextSection(): void {
+    let categoryIndex = this.activeCategory;
+    let subcategoryIndex = this.activeSubcategory;
+
+    subcategoryIndex += 1;
+
+    let categoryKey = Object.keys(this.portfolioData.portfolio)[this.activeCategory];
+    let subcategoryCount = Object.keys(this.portfolioData.portfolio[categoryKey]).length;
+    console.log('sub index: ' + subcategoryIndex + ' count: ' + subcategoryCount);
+    if(subcategoryIndex >= subcategoryCount){
+      categoryIndex += 1;
+      subcategoryIndex = 0;
+    }
+
+    let categoryCount = Object.keys(this.portfolioData.portfolio).length;
+    console.log('main index: ' + categoryIndex + ' count: ' + categoryCount);
+    if(categoryIndex >= categoryCount){
+      console.log('reset to 0');
+      categoryIndex = 0;
+    }
+
+    this.setGallery(categoryIndex, subcategoryIndex);
+  }
+
   setGallery(categoryIndex: number, subcategoryIndex: number): void{
     this.activeCategory = categoryIndex;
+    this.expandedCategory = categoryIndex;
     this.activeSubcategory = subcategoryIndex;
 
     let category = Object.keys(this.portfolioData.portfolio)[categoryIndex];

@@ -23,6 +23,52 @@ $pink: #FFB8B6;
   display:inline-block;
 }
 
+.gallery-block{
+  display:inline-block;
+  position:relative;
+  height:94vh;
+  text-align:center;
+  padding: 3vh 0;
+  margin: 0 15px;
+}
+
+.gallery-block-content{
+  position:absolute;
+  width:100%;
+  height:94vh;
+
+  margin-left:50%;
+  transform:translateX(-50%);
+}
+
+.gallery-end{
+  width:300px;
+
+  .gallery-block-content img{
+    width:200px;
+    height:auto;
+    margin-top:50px;
+  }
+}
+
+.gallery-end-link{
+  font-family: 'Raleway', sans-serif;
+  font-size:28px;
+  font-weight:300;
+  letter-spacing:1px;
+  margin-top:50px;
+}
+
+.gallery-end-footer{
+
+}
+
+.text-small-description{
+  font-family:'calendas_plusregular', sans-serif;
+  font-size:12px;
+  font-style:italic;
+}
+
 .logo{
   width:190px;
   height:auto;
