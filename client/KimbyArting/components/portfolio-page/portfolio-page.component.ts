@@ -1,6 +1,8 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+
+import { ScrollToDirective }  from '../scroll-directive/scroll-directive';
 
 @Component({
   selector: 'portfolio-page',
@@ -8,7 +10,9 @@ import 'rxjs/add/operator/toPromise';
   styleUrls: ['./portfolio-page.component.scss']
 })
 
-export class PortfolioPageComponent implements OnInit{
+export class PortfolioPageComponent implements OnInit {
+
+  @ViewChild(ScrollToDirective) private galleryScrollDirective: ScrollToDirective;
 
   private portfolioData;
 
@@ -24,19 +28,15 @@ export class PortfolioPageComponent implements OnInit{
   private activeCategory: number;
   private activeSubcategory: number;
 
-  private galleryScrollX: number;
-
   constructor(private http: Http) {}
-
-  onScroll(scrollX: number) {
-    this.galleryScrollX = scrollX;
-  }
 
   ngOnInit() {
 
     this.getData().then((data) => {
       this.portfolioData = data;
 
+      // TODO: Use a service to get and parse data for us. This component should ONLY deal
+      // with VMs.
       // TODO: this will be passed into menu component
       for(var categoryKey in this.portfolioData.portfolio){
         let subcategoriesVm: string[] = [];
@@ -59,14 +59,14 @@ export class PortfolioPageComponent implements OnInit{
   }
 
   setGallery(categoryIndex: number, subcategoryIndex: number): void{
-    this.galleryScrollX = 0;
-
     this.activeCategory = categoryIndex;
     this.activeSubcategory = subcategoryIndex;
 
     let category = Object.keys(this.portfolioData.portfolio)[categoryIndex];
     let subcategory = Object.keys(this.portfolioData.portfolio[category])[subcategoryIndex];
 
+    this.coverPhotoVm = null;
+    this.endPhotoVm = null;
     this.coverPhotoVm = this.portfolioData.portfolio[category][subcategory].cover;
     this.endPhotoVm = this.portfolioData.portfolio[category][subcategory].end;
 
@@ -77,6 +77,8 @@ export class PortfolioPageComponent implements OnInit{
         this.imagesVm = this.imagesVm.concat(projects[projectKey].images);
         this.thumbsVm = this.thumbsVm.concat(projects[projectKey].thumbs);
      }
+
+     this.galleryScrollDirective.setScrollX(0);
   }
 
   getData(): Promise<any>{
