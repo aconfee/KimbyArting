@@ -11,8 +11,8 @@ import { CoverPageComponent } from './components/cover-page/cover-page.component
 import { PortfolioPageComponent } from './components/portfolio-page/portfolio-page.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 
-import { ProjectGalleryComponent } from './components/project-gallery/project-gallery.component';
 import { ProjectPlaqueComponent } from './components/project-plaque/project-plaque.component';
+import { ProjectGalleryComponent } from './components/project-gallery/project-gallery.component';
 
 import { ScrollToDirective } from './components/scroll-directive/scroll-directive';
 
@@ -30,8 +30,8 @@ import { PortfolioDataService } from './services/portfolio-data.service';
   ],
   declarations: [
     ProjectPlaqueComponent,
-    ProjectGalleryComponent,
     ScrollToDirective,
+    ProjectGalleryComponent,
     ExampleThingComponent,
     CoverPageComponent,
     PortfolioPageComponent,
