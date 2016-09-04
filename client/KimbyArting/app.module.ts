@@ -11,13 +11,16 @@ import { CoverPageComponent } from './components/cover-page/cover-page.component
 import { PortfolioPageComponent } from './components/portfolio-page/portfolio-page.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 
-// Directives
+import { ProjectGalleryComponent } from './components/project-gallery/project-gallery.component';
+import { ProjectPlaqueComponent } from './components/project-plaque/project-plaque.component';
+
 import { ScrollToDirective } from './components/scroll-directive/scroll-directive';
 
 import { ExampleThingComponent } from './components/exampleThing/example-thing.component';
 
 // Application services
 import { ExampleService } from './services/example.service';
+import { PortfolioDataService } from './services/portfolio-data.service';
 
 @NgModule({
   imports: [
@@ -26,6 +29,8 @@ import { ExampleService } from './services/example.service';
     HttpModule
   ],
   declarations: [
+    ProjectPlaqueComponent,
+    ProjectGalleryComponent,
     ScrollToDirective,
     ExampleThingComponent,
     CoverPageComponent,
@@ -34,7 +39,8 @@ import { ExampleService } from './services/example.service';
     AppComponent
   ],
   providers: [
-    ExampleService
+    ExampleService,
+    PortfolioDataService
   ],
   bootstrap: [ AppComponent ]
 })

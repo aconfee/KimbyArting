@@ -35,51 +35,53 @@ var buildPortfolioDataObject = function(){
     "portfolio":{}
   };
 
+  portfolioData.portfolio.categories = [];
+
   // CHARACTERS, ENVIRONMENTS
-  var categories = getDirectories(root);
-  for(var i in categories){
-    portfolioData.portfolio[categories[i]] = {};
+  var categoryDirs = getDirectories(root);
+  for(var i in categoryDirs){
+    portfolioData.portfolio.categories.push({'name':categoryDirs[i]});
+    portfolioData.portfolio.categories[i].subcategories = [];
 
     // CONCEPT, SKETCHES
-    var specializations = getDirectories(path.join(root, categories[i]));
-    for(var j in specializations){
-      portfolioData.portfolio[categories[i]][specializations[j]] = {
-        'cover': path.join('/assets/portfolio/', categories[i], specializations[j], 'cover.png'),
-        'end': path.join('/assets/portfolio/', categories[i], specializations[j], 'end.png'),
+    var subcategoryDirs = getDirectories(path.join(root, categoryDirs[i]));
+    for(var j in subcategoryDirs){
+      portfolioData.portfolio.categories[i].subcategories.push({
+        'name':subcategoryDirs[j],
+        'cover': path.join('/assets/portfolio/', categoryDirs[i], subcategoryDirs[j], 'cover.png'),
         'projects':[]
-      };
+      });
 
       // SPACEPRINCESS, FISHBOWLS
-      var projects = getDirectories(path.join(root, categories[i], specializations[j]));
+      var projects = getDirectories(path.join(root, categoryDirs[i], subcategoryDirs[j]));
       for(var k in projects){
 
         var plaqueObject;
         try{
           plaqueObject = JSON.parse(fs.readFileSync(
-            path.join(root, categories[i], specializations[j], projects[k], 'plaque.json')
+            path.join(root, categoryDirs[i], subcategoryDirs[j], projects[k], 'plaque.json')
           ));
         }
         catch(ex){
           plaqueObject = null;
         }
 
-        portfolioData.portfolio[categories[i]][specializations[j]].projects.push({
+        portfolioData.portfolio.categories[i].subcategories[j].projects.push({
           'name': projects[k],
-          'images': [],
-          'thumbs': [],
+          'position': k,
           'plaque': plaqueObject
         });
 
         // IMAGES
-        portfolioData.portfolio[categories[i]][specializations[j]].projects[k].images = mapImages(
-          getFiles(path.join(root, categories[i], specializations[j], projects[k], 'images')),
-          path.join('/assets/portfolio/', categories[i], specializations[j], projects[k], 'images')
+        portfolioData.portfolio.categories[i].subcategories[j].projects[k].imagePaths = mapImages(
+          getFiles(path.join(root, categoryDirs[i], subcategoryDirs[j], projects[k], 'images')),
+          path.join('/assets/portfolio/', categoryDirs[i], subcategoryDirs[j], projects[k], 'images')
         );
 
         // THUMBS
-        portfolioData.portfolio[categories[i]][specializations[j]].projects[k].thumbs = mapImages(
-          getFiles(path.join(root, categories[i], specializations[j], projects[k], 'thumbs')),
-          path.join('/assets/portfolio', categories[i], specializations[j], projects[k], 'thumbs')
+        portfolioData.portfolio.categories[i].subcategories[j].projects[k].thumbImagePaths = mapImages(
+          getFiles(path.join(root, categoryDirs[i], subcategoryDirs[j], projects[k], 'thumbs')),
+          path.join('/assets/portfolio', categoryDirs[i], subcategoryDirs[j], projects[k], 'thumbs')
         );
       }
     }
