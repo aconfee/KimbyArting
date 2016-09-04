@@ -60,6 +60,11 @@ export class PortfolioPageComponent implements OnInit {
     });
   }
 
+  getNumeral(value: number): string {
+    let numerals = [ 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X' ];
+    return numerals[value];
+  }
+
   nextSection(): void {
     let categoryIndex = this.activeCategory;
     let subcategoryIndex = this.activeSubcategory;

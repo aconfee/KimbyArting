@@ -56,6 +56,25 @@ $pink: #FFB8B6;
   line-height:25px;
 }
 
+.plaque-numeral{
+  width:50px;
+  height:50px;
+
+  border:1px solid black;
+  border-radius:50%;
+
+  display:inline-block;
+  position:absolute;
+  bottom:12vh;
+
+  transform: translateX(-50%);
+
+  p{
+    margin-top:50%;
+    transform:translateY(-40%);
+  }
+}
+
 .text-small-sarif{
   font-family:'calendas_plusregular', sans-serif;
   font-size:12px;
