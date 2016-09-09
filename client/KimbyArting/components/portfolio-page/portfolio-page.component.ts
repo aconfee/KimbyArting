@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 
 import { ProjectGalleryComponent }  from '../project-gallery/project-gallery.component';
@@ -12,7 +12,7 @@ import { PortfolioDataService } from '../../services/portfolio-data.service';
   styleUrls: ['./portfolio-page.component.scss']
 })
 
-export class PortfolioPageComponent implements OnInit, AfterViewInit {
+export class PortfolioPageComponent implements OnInit {
 
   @ViewChild(ProjectGalleryComponent) private projectGalleryComponent: ProjectGalleryComponent;
   @ViewChild(NavigationMenuComponent) private navigationMenuComponent: NavigationMenuComponent;
@@ -30,7 +30,7 @@ export class PortfolioPageComponent implements OnInit, AfterViewInit {
 
     this.portfolioDataService.initPortfolioData().then(() => {
 
-      // When the cover is finished loading, show the gallery. 
+      // When the cover is finished loading, show the gallery.
       let temp = new Image();
       temp.src = this.portfolioDataService.getCover(0, 0);
       temp.onload = () => {
@@ -45,10 +45,6 @@ export class PortfolioPageComponent implements OnInit, AfterViewInit {
       this.menuSectionNames = this.portfolioDataService.getMenuSectionNames();
       this.setGallery(0, 0);
     });
-  }
-
-  ngAfterViewInit() {
-    //this.projectGalleryComponent.setVisible(true);
   }
 
   private preload(imageArray: string[], i: number): void {
