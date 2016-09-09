@@ -63,7 +63,8 @@ module.exports = {
     }),
 
     new CopyWebpackPlugin([
-      { from: './public/assets/portfolio/', to: './assets/portfolio' }
+      { from: './public/assets/portfolio/', to: './assets/portfolio' },
+      { from: './public/assets/cover/', to: './assets/cover' }
     ])
   ]
 };
