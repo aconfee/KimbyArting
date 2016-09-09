@@ -32,10 +32,10 @@ export class PortfolioPageComponent implements OnInit {
 
       // When the cover is finished loading, show the gallery.
       let temp = new Image();
-      temp.src = this.portfolioDataService.getCover(0, 0);
       temp.onload = () => {
         this.projectGalleryComponent.setVisible(true);
       }
+      temp.src = this.portfolioDataService.getCover(0, 0);
 
       // Load first project images.
       let imagePaths: string[] = [ this.portfolioDataService.getCover(0, 0) ];
@@ -58,7 +58,6 @@ export class PortfolioPageComponent implements OnInit {
           this.preload(imageArray, index + 1);
       }
 
-      console.log('loading ' + imageArray[index]);
       img.src = imageArray[index];
     }
   }
