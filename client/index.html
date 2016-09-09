@@ -15,12 +15,12 @@
     <script>
       // Preload the logo no matter where we are.
       var imgLogo = new Image ();
-      imgLogo.src = 'http://kimbyarting.herokuapp.com/assets/logo.png';
+      imgLogo.src = 'http://kimbyarting.herokuapp.com/assets/cover/logo.png';
 
       // If on cover, preload egypt girl and logo.
       if(window.location.pathname.indexOf('portfolio') === -1){
         var imgContent = new Image ();
-        imgContent.src = 'http://kimbyarting.herokuapp.com/assets/egyptGirlCover.png';
+        imgContent.src = 'http://kimbyarting.herokuapp.com/assets/cover/egyptGirlCover.png';
       }
 
       // If we're on the portfolio, preload the first cover.
