@@ -26,6 +26,9 @@
       // If we're on the portfolio, preload the first cover.
       else{
         var imgContent = new Image ();
+        imgContent.onload = function(){
+          console.log('onload from index');
+        };
         imgContent.src = 'http://kimbyarting.herokuapp.com/assets/portfolio/00_characters/00_concept/cover.png';
       }
     </script>

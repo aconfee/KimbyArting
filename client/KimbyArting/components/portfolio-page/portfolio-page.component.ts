@@ -33,6 +33,7 @@ export class PortfolioPageComponent implements OnInit {
       // When the cover is finished loading, show the gallery.
       let temp = new Image();
       temp.onload = () => {
+        console.log('image onload from portfolio page. setting visible to true.');
         this.projectGalleryComponent.setVisible(true);
       }
       temp.src = this.portfolioDataService.getCover(0, 0);
@@ -54,7 +55,6 @@ export class PortfolioPageComponent implements OnInit {
     if (imageArray && index < imageArray.length) {
       img = new Image ();
       img.onload = () => {
-          console.log('executing onload');
           this.preload(imageArray, index + 1);
       }
 
