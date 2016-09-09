@@ -7,11 +7,6 @@ import { ContactPageComponent } from './components/contact-page/contact-page.com
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
     component: CoverPageComponent
   },
   {

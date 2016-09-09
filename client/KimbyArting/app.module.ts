@@ -14,6 +14,7 @@ import { ContactPageComponent } from './components/contact-page/contact-page.com
 import { ScrollToDirective } from './components/scroll-directive/scroll-directive';
 import { ProjectPlaqueComponent } from './components/project-plaque/project-plaque.component';
 import { ProjectGalleryComponent } from './components/project-gallery/project-gallery.component';
+import { NavigationMenuComponent } from './components/navigation-menu/navigation-menu.component';
 
 // Application services
 import { PortfolioDataService } from './services/portfolio-data.service';
@@ -28,6 +29,7 @@ import { PortfolioDataService } from './services/portfolio-data.service';
     ScrollToDirective,
     ProjectPlaqueComponent,
     ProjectGalleryComponent,
+    NavigationMenuComponent,
     CoverPageComponent,
     PortfolioPageComponent,
     ContactPageComponent,

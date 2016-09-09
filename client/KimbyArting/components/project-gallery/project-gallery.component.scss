@@ -8,6 +8,16 @@ $pink: #FFB8B6;
   transition: all $duration ease-in-out $delay;
 }
 
+.hide{
+  opacity: 0;
+
+  &.show{
+    opacity: 1;
+
+    @include basic-transition(0.2s, 0s);
+  }
+}
+
 .gallery-padding{
   width:$menu-width;
   height:100vh;

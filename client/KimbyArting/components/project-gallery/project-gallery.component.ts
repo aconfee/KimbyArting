@@ -16,12 +16,18 @@ export class ProjectGalleryComponent {
   @Output() private onNextSection = new EventEmitter<any>();
   @ViewChild(ScrollToDirective) private galleryScrollDirective: ScrollToDirective;
 
+  private showGallery: boolean = true;
+
   public setScrollX(scrollX: number): void {
     this.galleryScrollDirective.setScrollX(scrollX);
   }
 
   private nextSection() {
     this.onNextSection.emit();
+  }
+
+  public setVisible(show: boolean): void {
+    this.showGallery = show;
   }
 
 }

@@ -1,4 +1,4 @@
-<div galleryScroll class='gallery-image-container'>
+<div galleryScroll class='gallery-image-container hide' [class.show]='showGallery'>
   <div class='gallery-padding'></div>
   <img class='gallery-image' src='{{ coverImagePath }}' />
   <div style='display:inline-block;'*ngFor='let project of projects; let i=index'>
