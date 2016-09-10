@@ -26,6 +26,7 @@ export class PortfolioPageComponent implements OnInit {
   constructor(private portfolioDataService: PortfolioDataService) {}
 
   ngOnInit() {
+    console.log('setting false from parent on init');
     this.projectGalleryComponent.setVisible(false);
 
     this.portfolioDataService.initPortfolioData().then(() => {

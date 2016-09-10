@@ -27,7 +27,9 @@ export class ProjectGalleryComponent {
   }
 
   public setVisible(show: boolean): void {
+    console.log('setting showGallery to ' + show);
     this.showGallery = show;
+    console.log('showGallery is set to ' + this.showGallery);
   }
 
 }

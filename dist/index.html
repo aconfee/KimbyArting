@@ -1,1 +1,52 @@
-<!DOCTYPE html> <html> <head> <base href=/ > <title>Kim Greenough - @kimbyarting - Digital Art Portfolio</title> <meta charset=UTF-8> <meta name=viewport content="width=device-width,initial-scale=1"> <link href="https://fonts.googleapis.com/css?family=Raleway:thin,extra-light,light,regular" rel=stylesheet media=none onload='this.media="all"'> <script>var imgLogo=new Image;if(imgLogo.src="http://kimbyarting.herokuapp.com/assets/cover/logo.png",window.location.pathname.indexOf("portfolio")===-1){var imgContent=new Image;imgContent.src="http://kimbyarting.herokuapp.com/assets/cover/egyptGirlCover.png"}else{var imgContent=new Image;imgContent.onload=function(){console.log("onload from index")},imgContent.src="http://kimbyarting.herokuapp.com/assets/portfolio/00_characters/00_concept/cover.png"}</script> <link href="https://kimbyarting.herokuapp.com/app.6c1ab8a833433356d112.css" rel="stylesheet"></head> <body> <my-app>Loading...</my-app> <script type="text/javascript" src="https://kimbyarting.herokuapp.com/polyfills.6c1ab8a833433356d112.js"></script><script type="text/javascript" src="https://kimbyarting.herokuapp.com/vendor.6c1ab8a833433356d112.js"></script><script type="text/javascript" src="https://kimbyarting.herokuapp.com/app.6c1ab8a833433356d112.js"></script></body> <script id=inspectletjs>setTimeout(function(){window.__insp=window.__insp||[],__insp.push(["wid",311793781]),function(){function t(){if("undefined"==typeof window.__inspld){window.__inspld=1;var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.id="inspsync",t.src=("https:"==document.location.protocol?"https":"http")+"://cdn.inspectlet.com/inspectlet.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}}setTimeout(t,500),"complete"!=document.readyState?window.attachEvent?window.attachEvent("onload",t):window.addEventListener("load",t,!1):t()}()},3e3)</script> </html>
+<!-- INCLUDE ALL APPLICATIONS THAT SHOULD BE ON THIS PAGE HERE -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/">
+    <title>Kim Greenough - @kimbyarting - Digital Art Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:thin,extra-light,light,regular" rel="stylesheet" media="none" onload="this.media='all';">
+
+    <!-- Preload absolutely critical path images. -->
+    <!-- This is an edge case hack, but it's to absolutely optimize for this experience -->
+    <script>
+      // Preload the logo no matter where we are.
+      var imgLogo = new Image ();
+      imgLogo.src = 'http://kimbyarting.herokuapp.com/assets/cover/logo.png';
+
+      // If on cover, preload egypt girl and logo.
+      if(window.location.pathname.indexOf('portfolio') === -1){
+        var imgContent = new Image ();
+        imgContent.src = 'http://kimbyarting.herokuapp.com/assets/cover/egyptGirlCover.png';
+      }
+
+      // If we're on the portfolio, preload the first cover.
+      else{
+        var imgContent = new Image ();
+        imgContent.onload = function(){
+          console.log('onload from index');
+        };
+        imgContent.src = 'http://kimbyarting.herokuapp.com/assets/portfolio/00_characters/00_concept/cover.png';
+      }
+    </script>
+
+  <link href="http://localhost:3000/app.css" rel="stylesheet"></head>
+  <body>
+    <my-app>Loading...</my-app>
+  <script type="text/javascript" src="http://localhost:3000/polyfills.js"></script><script type="text/javascript" src="http://localhost:3000/vendor.js"></script><script type="text/javascript" src="http://localhost:3000/app.js"></script></body>
+
+  <!-- Begin Inspectlet Embed Code -->
+  <script type="text/javascript" id="inspectletjs">
+    setTimeout(function(){
+      window.__insp = window.__insp || [];
+      __insp.push(['wid', 311793781]);
+      (function() {
+      function ldinsp(){if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+      setTimeout(ldinsp, 500); document.readyState != "complete" ? (window.attachEvent ? window.attachEvent('onload', ldinsp) : window.addEventListener('load', ldinsp, false)) : ldinsp();
+      })();
+    }, 3000);
+  </script>
+</html>
