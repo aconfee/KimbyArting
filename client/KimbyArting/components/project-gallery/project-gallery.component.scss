@@ -8,13 +8,37 @@ $pink: #FFB8B6;
   transition: all $duration ease-in-out $delay;
 }
 
-.hide{
+.hide-gallery{
   opacity: 0;
 
-  &.show{
+  &.fade-in{
     opacity: 1;
 
     @include basic-transition(0.2s, 0s);
+  }
+}
+
+.loading-indicator{
+  position: fixed;
+  left:55%;
+  top:50%;
+  transform: translate(-50%, -50%);
+  width:150px;
+  height:250px;
+  text-align:center;
+  opacity:0.45;
+
+  img{
+    max-width: 150px;
+    max-height:150px;
+  }
+
+  p{
+    font-family: 'Raleway', sans-serif;
+    font-size:16px;
+    font-weight:300;
+    letter-spacing:1px;
+    margin-top:-20px;
   }
 }
 

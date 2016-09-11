@@ -70,6 +70,28 @@ export class PortfolioDataService {
      .catch(this.handleError);
   }
 
+  // Return all content in order listed in directory. Covers first.
+  public getAllContent(): string[] {
+    let imagePaths: string[] = [];
+
+    for(let category of this.portfolioData.portfolio.categories){
+      for(let subcategory of category.subcategories){
+        if(subcategory.cover){
+          imagePaths.push(subcategory.cover);
+          console.log('cover: ' + subcategory.cover);
+        }
+
+        for(let project of subcategory.projects){
+          if(project.imagePaths && project.imagePaths.length > 0){
+            imagePaths = imagePaths.concat(project.imagePaths);
+          }
+        }
+      }
+    }
+
+    return imagePaths;
+  }
+
   public getPortfolioData(): Promise<any>{
     return this.http.get('portfolioData.json')
      .toPromise()

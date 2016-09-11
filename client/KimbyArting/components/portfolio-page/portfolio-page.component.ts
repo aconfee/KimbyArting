@@ -26,22 +26,10 @@ export class PortfolioPageComponent implements OnInit {
   constructor(private portfolioDataService: PortfolioDataService) {}
 
   ngOnInit() {
-    console.log('setting false from parent on init');
-    this.projectGalleryComponent.setVisible(false);
-
     this.portfolioDataService.initPortfolioData().then(() => {
 
-      // When the cover is finished loading, show the gallery.
-      let temp = new Image();
-      temp.onload = () => {
-        console.log('image onload from portfolio page. setting visible to true.');
-        this.projectGalleryComponent.setVisible(true);
-      }
-      temp.src = this.portfolioDataService.getCover(0, 0);
-
       // Load first project images.
-      let imagePaths: string[] = [ this.portfolioDataService.getCover(0, 0) ];
-      imagePaths = imagePaths.concat(this.portfolioDataService.getProjects(0, 0)[0].imagePaths);
+      let imagePaths: string[] = this.portfolioDataService.getAllContent();
       this.preload(imagePaths, 0);
 
       this.menuSectionNames = this.portfolioDataService.getMenuSectionNames();
@@ -57,7 +45,7 @@ export class PortfolioPageComponent implements OnInit {
       img = new Image ();
       img.onload = () => {
           this.preload(imageArray, index + 1);
-      }
+      };
 
       img.src = imageArray[index];
     }

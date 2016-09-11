@@ -28,6 +28,15 @@ function getFile(path){
   var obj = JSON.parse(fs.readFileSync('file', 'utf8'));
 }
 
+function fsExistsSync(myDir) {
+  try {
+    fs.accessSync(myDir);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 var buildPortfolioDataObject = function(){
   var root = './public/assets/portfolio/';
 
@@ -46,9 +55,15 @@ var buildPortfolioDataObject = function(){
     // CONCEPT, SKETCHES
     var subcategoryDirs = getDirectories(path.join(root, categoryDirs[i]));
     for(var j in subcategoryDirs){
+
+      var coverPath = null;
+      if(fsExistsSync(path.join(root, categoryDirs[i], subcategoryDirs[j], 'cover.png'))){
+        coverPath = path.join('/assets/portfolio/', categoryDirs[i], subcategoryDirs[j], 'cover.png');
+      }
+
       portfolioData.portfolio.categories[i].subcategories.push({
         'name':subcategoryDirs[j],
-        'cover': path.join('/assets/portfolio/', categoryDirs[i], subcategoryDirs[j], 'cover.png'),
+        'cover': coverPath,
         'projects':[]
       });
 
