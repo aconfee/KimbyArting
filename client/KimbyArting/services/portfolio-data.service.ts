@@ -78,7 +78,6 @@ export class PortfolioDataService {
       for(let subcategory of category.subcategories){
         if(subcategory.cover){
           imagePaths.push(subcategory.cover);
-          console.log('cover: ' + subcategory.cover);
         }
 
         for(let project of subcategory.projects){

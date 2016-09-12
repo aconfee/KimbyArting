@@ -5,13 +5,22 @@
 <div galleryScroll class='gallery-image-container hide-gallery' [class.fade-in]='!isLoading'>
   <div class='gallery-padding'></div>
   <img *ngIf='coverImagePath' class='gallery-image' src='{{ coverImagePath }}' />
+  <project-gallery-index
+    *ngIf='galleryThumbs.length > 5' 
+    [thumbs]='galleryThumbs'
+    (onThumbSelected)='onThumbSelected($event)'>
+  </project-gallery-index>
   <div style='display:inline-block;'*ngFor='let project of projects; let i=index'>
     <project-plaque
       *ngIf='project.plaque'
       [content]='project.plaque'
       [numeral]='project.position'>
     </project-plaque>
-    <img class='gallery-image' src='{{ imagepath }}' *ngFor='let imagepath of project.imagePaths' />
+    <img
+      class='gallery-image'
+      src='{{ imagepath }}'
+      *ngFor='let imagepath of project.imagePaths'
+      scrollOffset />
   </div>
   <div class='gallery-block gallery-end'>
     <div class='gallery-block-content'>

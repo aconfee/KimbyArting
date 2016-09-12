@@ -1,6 +1,8 @@
-import { Component, Input, Output, EventEmitter, ViewChild, OnChanges, SimpleChanges	} from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild, ViewChildren, QueryList, OnChanges,  SimpleChanges } from '@angular/core';
 
+import { ProjectGalleryIndexComponent }  from '../project-gallery-index/project-gallery-index.component';
 import { ScrollToDirective }  from '../scroll-directive/scroll-directive';
+import { ScrollOffsetDirective }  from '../scroll-offset/scroll-offset.directive';
 import { ProjectVm } from '../../viewModels/projectVm';
 
 @Component({
@@ -15,8 +17,10 @@ export class ProjectGalleryComponent implements OnChanges {
   @Input() private projects: ProjectVm[];
   @Output() private onNextSection = new EventEmitter<any>();
   @ViewChild(ScrollToDirective) private galleryScrollDirective: ScrollToDirective;
+  @ViewChildren(ScrollOffsetDirective) private galleryImageOffsets: QueryList<ScrollOffsetDirective>;
 
   private isLoading: boolean = false;
+  private galleryThumbs: string[] = [];
 
   constructor() { }
 
@@ -43,6 +47,12 @@ export class ProjectGalleryComponent implements OnChanges {
       else{
         this.isLoading = false;
       }
+
+      // Prepare thumbs.
+      this.galleryThumbs = [];
+      for(let project of this.projects){
+        this.galleryThumbs = this.galleryThumbs.concat(project.thumbImagePaths);
+      }
     }
   }
 
@@ -52,5 +62,11 @@ export class ProjectGalleryComponent implements OnChanges {
 
   private nextSection() {
     this.onNextSection.emit();
+  }
+
+  private onThumbSelected(index: number): void {
+    let offset = this.galleryImageOffsets.toArray()[index].getOffset();
+    offset -= 240; // Width of directory.
+    this.galleryScrollDirective.setScrollX(offset);
   }
 }

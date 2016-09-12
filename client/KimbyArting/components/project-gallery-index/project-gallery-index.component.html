@@ -1,0 +1,19 @@
+<div class='gallery-block gallery-index'>
+  <div class='gallery-block-content'>
+    <div class='thumb-container'>
+      <p class='index-title'>INDEX</p>
+      <div
+        class='thumb'
+        *ngFor='let thumbPath of thumbs; let i=index'
+        (click)='thumbSelected(i); hoveredIndex=-1;'
+        (mouseover)='hoveredIndex=i' (mouseleave)='hoveredIndex=-1'>
+        <img *ngIf='hoveredIndex !== i' src='{{ thumbPath }}' />
+        <div *ngIf='hoveredIndex === i' class='thumb-hover'>
+          <p class='thumb-hover-numeral'>{{ getNumeral(i) }}</p>
+        </div>
+      </div>
+    </div>
+
+    <p class='index-description'>Been here before? Skip ahead to your favorite art using the index.</p>
+  </div>
+</div>

@@ -12,7 +12,9 @@ import { PortfolioPageComponent } from './components/portfolio-page/portfolio-pa
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 
 import { ScrollToDirective } from './components/scroll-directive/scroll-directive';
+import { ScrollOffsetDirective } from './components/scroll-offset/scroll-offset.directive';
 import { ProjectPlaqueComponent } from './components/project-plaque/project-plaque.component';
+import { ProjectGalleryIndexComponent } from './components/project-gallery-index/project-gallery-index.component';
 import { ProjectGalleryComponent } from './components/project-gallery/project-gallery.component';
 import { NavigationMenuComponent } from './components/navigation-menu/navigation-menu.component';
 
@@ -27,7 +29,9 @@ import { PortfolioDataService } from './services/portfolio-data.service';
   ],
   declarations: [
     ScrollToDirective,
+    ScrollOffsetDirective,
     ProjectPlaqueComponent,
+    ProjectGalleryIndexComponent,
     ProjectGalleryComponent,
     NavigationMenuComponent,
     CoverPageComponent,

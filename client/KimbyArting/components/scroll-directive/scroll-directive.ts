@@ -47,7 +47,7 @@ export class ScrollToDirective {
     }
   }
 
-  setScrollX(scrollValue: number){
+  public setScrollX(scrollValue: number){
     this.el.nativeElement.scrollLeft = scrollValue;
   }
 }
