@@ -1,5 +1,18 @@
 [![Build Status](https://travis-ci.org/aconfee/MEANTemplateV3.svg?branch=master)](https://travis-ci.org/aconfee/MEANTemplateV3)
 
+
+How To Update The Portfolio
+
+1. Make a backup of 'public/assets/portfolio'
+2. Drag the new portfolio to that location
+3. Run `npm run build`. This allows webpack to load the new portfolio to the dist folder.
+3. Side note: The server has middleware to serialize the portfolio in dist and make a JSON file representation for code to use. Will make portfolioData.json in dist folder. Middlewre will, obviously, be run anytime a page is loaded. 
+4. Push to Heroku
+5. Heroku push will fail if compilation is over 300MB. Images must be compressed to stay below this.
+6. Boosh
+
+
+
 Live Site: https://young-savannah-99031.herokuapp.com/
 Travis: https://travis-ci.org/aconfee/MEANTemplateV3
 mLab: https://www.mlab.com/databases/heroku_0p01cnk5
